@@ -16,7 +16,7 @@ export default function HomeCrud({navigation}) {
 
  useEffect(()=>{
   axios.get("https://crud-node-senai.herokuapp.com/all")
-  .then(({data})=>setContent(data))
+  .then(({data})=>setContent(data.rows))
  },[]);
 
   return (

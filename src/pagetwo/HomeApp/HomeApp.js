@@ -15,28 +15,35 @@ export default function HomeApp({content}){
         <>
             {dataProduct !== undefined &&
                 <ScrollView>
-                    <View style={styles.cardSneakers}>
-                        <Image
-                            style={{width: "100%", height:300}}
-                            source={{uri:`https://crud-node-senai.herokuapp.com/files/${dataProduct.nameImage}`}}
-                        /> 
-                    </View>
-                    <View>
-                        <Text style={styles.nameProduct}>{dataProduct.name}</Text>
-                    </View>
-                    <View style={{flexDirection: 'row', justifyContent:'center'}}>
-                        <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
-                        <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
-                        <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
-                        <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
-                        <FontAwesome name="star-half-empty" size={16} color="#daa520" style={{padding: 10}} />
-                    </View>
-                    <Size/>
-                    <Text style={styles.priceText}>R$ {String(dataProduct.unitValue).replace('.',",")}</Text>
-                    <View style={{alignItems:'center'}}>
-                        <TouchableOpacity style={styles.buyButton}>
-                            <Text style={styles.txtBtn}>Comprar</Text>
-                        </TouchableOpacity>
+                    <View style={{paddingHorizontal:10}}>
+                        <View style={styles.cardSneakers}>
+                            <Image
+                                style={{width: "100%", height:300}}
+                                source={{uri:`https://crud-node-senai.herokuapp.com/files/${dataProduct.nameImage}`}}
+                            /> 
+                        </View>
+                        <View>
+                            <Text style={styles.nameProduct}>{dataProduct.name}</Text>
+                        </View>
+                        <View style={{flexDirection: 'row', justifyContent:'center'}}>
+                            <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
+                            <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
+                            <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
+                            <FontAwesome name="star" size={16} color="#daa520" style={{padding: 10}} />
+                            <FontAwesome name="star-half-empty" size={16} color="#daa520" style={{padding: 10}} />
+                        </View>
+                        <Size/>
+                        <Text style={styles.priceText}>R$ {String(dataProduct.unitValue).replace('.',",")}</Text>
+                        <View>
+                            <Text style={styles.descriptionText}>
+                                {dataProduct.description}
+                            </Text>
+                        </View>
+                        <View style={{alignItems:'center'}}>
+                            <TouchableOpacity style={styles.buyButton}>
+                                <Text style={styles.txtBtn}>Comprar</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </ScrollView>
             }
@@ -69,4 +76,9 @@ const styles = StyleSheet.create({
         color: 'black',
         padding:10
     },
+    descriptionText:{
+        color:"rgba(0,0,0,0.5)",
+        fontSize:15,
+        textAlign:"justify"
+    }
 })

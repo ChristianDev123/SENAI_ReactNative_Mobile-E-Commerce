@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import {
   FlatList,
   View,
@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Card } from "react-native-paper";
 export default function Cards({content,navigation}) {  
+  useEffect(()=>console.log(content),[])
   return (
     <FlatList
       data={content}
